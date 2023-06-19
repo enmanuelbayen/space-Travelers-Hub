@@ -1,5 +1,3 @@
-// import '../style file';
-
 function App() {
   return (
     <div className="App">
