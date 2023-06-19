@@ -10,7 +10,7 @@ const Navbar = () => (
     </div>
     <nav className="nav flex">
       <NavLink
-        to="/Rockets"
+        to="/"
         className={({ isActive, isPending }) => {
           if (isPending) {
             return 'pending';
