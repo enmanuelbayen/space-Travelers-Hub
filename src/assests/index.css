@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto+Slab:wght@300;400;600;700;900&family=Ubuntu:ital,wght@0,400;0,700;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto+Slab', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #000;
+}
+
+.flex {
+  display: flex;
+}
+
+.header {
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 1px #0e0202;
+  padding: 1.5rem 2.5rem;
+}
+
+.logo-container {
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.nav {
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav span {
+  width: 0;
+  height: 1.5rem;
+  border: solid 1px #000;
+}
+
+.active {
+  color: rgb(25, 0, 255);
+}
