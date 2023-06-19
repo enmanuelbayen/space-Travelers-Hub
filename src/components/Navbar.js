@@ -4,13 +4,13 @@ import { TbPlanet } from 'react-icons/tb';
 
 const Navbar = () => (
   <header className="header flex">
-    <div className="nav-container flex">
+    <div className="logo-container flex">
       <p><TbPlanet className="userLogo" /></p>
       <logo className="logo">Space Travelers Hub</logo>
     </div>
     <nav className="nav flex">
       <NavLink
-        to="/"
+        to="/Rockets"
         className={({ isActive, isPending }) => {
           if (isPending) {
             return 'pending';
