@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { TbPlanet } from 'react-icons/tb';
+import space from '../space.jpg';
 
 const Navbar = () => (
   <header className="header flex">
     <div className="logo-container flex">
-      <p><TbPlanet className="userLogo" /></p>
+      <img src={space} alt="A cute cat" />
       <logo className="logo">Space Travelers Hub</logo>
     </div>
     <nav className="nav flex">
