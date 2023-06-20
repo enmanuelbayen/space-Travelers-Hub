@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -14,7 +13,32 @@ const missionsSlice = createSlice({
     status: 'idle',
     error: null,
   },
-  reducers: {},
+  reducers: {
+    joinMission: (state, action) => {
+      const missionId = action.payload;
+      state.missions = state.missions.map((mission) => {
+        if (mission.mission_id === missionId) {
+          return {
+            ...mission,
+            reserved: true,
+          };
+        }
+        return mission;
+      });
+    },
+    cancelReservation: (state, action) => {
+      const missionId = action.payload;
+      state.missions = state.missions.map((mission) => {
+        if (mission.mission_id === missionId) {
+          return {
+            ...mission,
+            reserved: false,
+          };
+        }
+        return mission;
+      });
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMissions.pending, (state) => {
@@ -35,4 +59,5 @@ const missionsSlice = createSlice({
   },
 });
 
+export const { joinMission, cancelReservation } = missionsSlice.actions;
 export default missionsSlice.reducer;
