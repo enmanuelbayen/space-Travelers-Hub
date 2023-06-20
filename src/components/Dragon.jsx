@@ -1,11 +1,19 @@
 import PropTypes from 'prop-types';
 import '../assests/rockets.css';
+import { useDispatch } from 'react-redux';
+import { joinMission, cancelReservation } from '../Redux/dragons/dragonsSlice';
 
 const Dragon = ({
-  name, type, image, reserved = false,
+  name, type, id, image, reserved = false,
 }) => {
+  const dispatch = useDispatch();
+
   const onReserve = () => {
-    console.log(`Reserving ${name}`);
+    if (reserved) {
+      dispatch(cancelReservation(id));
+    } else {
+      dispatch(joinMission(id));
+    }
   };
 
   return (
@@ -13,11 +21,11 @@ const Dragon = ({
       <img src={image} className="rocket-img" alt={name} />
       <div className="rocket-textBox flex">
         <h3 className="rocket-name">{name}</h3>
-        {reserved && <div className="dragon--badge">RESERVED</div>}
+        {reserved && <div className="reserved--badge">RESERVED</div>}
         <p className="rocket-description">{type}</p>
         <button
           type="button"
-          className={reserved ? 'btn btn-danger' : 'reserveBttn'}
+          className={`btn col-2 ${reserved ? 'btn-outline-danger' : 'btn-primary'}`}
           onClick={onReserve}
         >
           {reserved ? 'Cancel Reservation' : 'Reserve Dragon'}
@@ -28,6 +36,7 @@ const Dragon = ({
 };
 
 Dragon.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,

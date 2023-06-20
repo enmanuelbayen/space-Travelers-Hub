@@ -22,6 +22,7 @@ const Dragons = () => {
         {dragons.map((dragon) => (
           <Dragon
             key={dragon.id}
+            id={dragon.id}
             name={dragon.name}
             type={dragon.type}
             image={dragon.flickr_images[0]}
