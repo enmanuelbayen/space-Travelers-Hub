@@ -27,7 +27,7 @@ li {
 
 .rocket-textBox {
   flex-direction: column;
-  gap: 1.2em;
+  justify-content: space-between;
 }
 
 .rocket-name {
@@ -41,7 +41,6 @@ li {
 .reserveBttn {
   align-self: flex-start;
   padding: 0.8em 1.5em;
-  margin-top: 1em;
   background-color: rgb(25, 108, 209);
   color: #fff;
   border: none;
