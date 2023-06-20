@@ -6,7 +6,7 @@ const Navbar = () => (
   <header className="header flex">
     <div className="logo-container flex">
       <img src={space} alt="A cute cat" />
-      <logo className="logo">Space Travelers Hub</logo>
+      <h2 className="logo">Space Travelers Hub</h2>
     </div>
     <nav className="nav flex">
       <NavLink

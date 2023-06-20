@@ -30,8 +30,10 @@ const Missions = () => {
   }
 
   return (
-    <section>
-      <h1>Missions</h1>
+    <section className="missionTitle">
+      <h2>Missions</h2>
+      <h2>discription</h2>
+      <h2>status</h2>
       {content}
     </section>
   );
