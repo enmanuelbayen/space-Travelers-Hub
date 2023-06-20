@@ -9,14 +9,34 @@ export const fetchDragons = createAsyncThunk(
   },
 );
 
-const initialState = {};
+const initialState = {
+  dragons: [],
+  status: 'idle',
+  error: null,
+};
 
 const dragonsSlice = createSlice({
   name: 'dragons',
   initialState,
   reducers: {},
+  extraReducers: {
+    [fetchDragons.pending]: (state) => {
+      state.status = 'loading';
+    },
+    [fetchDragons.fulfilled]: (state, action) => {
+      state.status = 'succeeded';
+      state.dragons = action.dragons.map((dragon) => ({
+        id: dragon.id,
+        name: dragon.name,
+        type: dragon.type,
+        flickr_images: dragon.flickr_images,
+      }));
+    },
+    [fetchDragons.rejected]: (state, action) => {
+      state.status = 'failed';
+      state.error = action.error.message;
+    },
+  },
 });
-
-// export const {} = dragonsSlice.actions;
 
 export default dragonsSlice.reducer;
