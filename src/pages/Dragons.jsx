@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchDragons } from '../Redux/dragons/dragonsSlice';
+import Dragon from '../components/Dragon';
+import '../assests/rockets.css';
 
 const Dragons = () => {
   const dispatch = useDispatch();
@@ -13,13 +15,18 @@ const Dragons = () => {
   }, [dispatch, status]);
 
   return (
-    <div>
-      <h1>Dragons</h1>
+    <div className="rocket-container">
       {status === 'loading' && <div>Loading...</div>}
       {status === 'succeeded' && (
-      <ul>
+      <ul className="rocket-list flex">
         {dragons.map((dragon) => (
-          <li key={dragon.id}>{dragon.name}</li>
+          <Dragon
+            key={dragon.id}
+            name={dragon.name}
+            type={dragon.type}
+            image={dragon.flickr_images[0]}
+            reserved={dragon.reserved}
+          />
         ))}
       </ul>
       )}
