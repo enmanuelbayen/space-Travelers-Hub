@@ -1,6 +1,44 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchMissions } from '../Redux/missions/missionSlice';
+import { fetchMissions, joinMission, cancelReservation } from '../Redux/missions/missionSlice';
+import './mission.css';
+
+const MissionRow = ({ mission, handleJoinMission, handleCancelReservation }) => (
+  <tr key={mission.mission_id}>
+    <td className="mission">{mission.mission_name}</td>
+    <td className="descriptions">{mission.description}</td>
+    <td className={`missionStatus${mission.reserved ? ' activeMember' : ' notAMember'}`}>
+      {mission.reserved ? (
+        <span className="activeMemberText">ACTIVE MEMBER</span>
+      ) : (
+        <span className="notAMemberText">NOT A MEMBER</span>
+      )}
+    </td>
+    <td className="missionButton">
+      {mission.reserved ? (
+        <button onClick={() => handleCancelReservation(mission.mission_id)} type="button" className="leave">
+          leave Mission
+        </button>
+      ) : (
+        <button onClick={() => handleJoinMission(mission.mission_id)} type="button" className="joined">
+          Join Mission
+        </button>
+      )}
+    </td>
+  </tr>
+);
+
+MissionRow.propTypes = {
+  mission: PropTypes.shape({
+    mission_id: PropTypes.string.isRequired,
+    mission_name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    reserved: PropTypes.bool,
+  }).isRequired,
+  handleJoinMission: PropTypes.func.isRequired,
+  handleCancelReservation: PropTypes.func.isRequired,
+};
 
 const Missions = () => {
   const dispatch = useDispatch();
@@ -17,25 +55,34 @@ const Missions = () => {
   let content;
 
   if (status === 'loading') {
-    content = <div className="loader">Loading...</div>;
+    content = <tr><td colSpan="4" className="loader">Loading...</td></tr>;
   } else if (status === 'succeeded') {
     content = missions.map((mission) => (
-      <div key={mission.mission_id} className="mission">
-        <h2>{mission.mission_name}</h2>
-        <p>{mission.description}</p>
-      </div>
+      <MissionRow
+        key={mission.mission_id}
+        mission={mission}
+        handleJoinMission={(missionId) => dispatch(joinMission(missionId))}
+        handleCancelReservation={(missionId) => dispatch(cancelReservation(missionId))}
+      />
     ));
   } else if (status === 'failed') {
-    content = <div>{error}</div>;
+    content = <tr><td colSpan="4">{error}</td></tr>;
   }
 
   return (
-    <section className="missionTitle">
-      <h2>Missions</h2>
-      <h2>discription</h2>
-      <h2>status</h2>
-      {content}
-    </section>
+    <table className="missionsTable">
+      <thead>
+        <tr>
+          <th>Mission Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        {content}
+      </tbody>
+    </table>
   );
 };
 
