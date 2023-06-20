@@ -48,3 +48,17 @@ li {
   cursor: pointer;
   border-radius: 4px;
 }
+
+.reserved--badge {
+  width: 70px;
+  height: auto;
+  padding-block: 2px;
+  margin-block: 5px;
+  font-size: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #0a94e9;
+  color: rgba(255, 255, 255, 0.919);
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}

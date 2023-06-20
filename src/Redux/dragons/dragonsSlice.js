@@ -18,7 +18,33 @@ const initialState = {
 const dragonsSlice = createSlice({
   name: 'dragons',
   initialState,
-  reducers: {},
+  reducers: {
+    joinMission: (state, action) => {
+      const dragonId = action.payload;
+      state.dragons = state.dragons.map((dragon) => {
+        if (dragon.id === dragonId) {
+          return {
+            ...dragon,
+            reserved: true,
+          };
+        }
+
+        return dragon;
+      });
+    },
+    cancelReservation: (state, action) => {
+      const dragonId = action.payload;
+      state.dragons = state.dragons.map((dragon) => {
+        if (dragon.id === dragonId) {
+          return {
+            ...dragon,
+            reserved: false,
+          };
+        }
+        return dragon;
+      });
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchDragons.pending, (state) => {
@@ -40,4 +66,5 @@ const dragonsSlice = createSlice({
   },
 });
 
+export const { joinMission, cancelReservation } = dragonsSlice.actions;
 export default dragonsSlice.reducer;
