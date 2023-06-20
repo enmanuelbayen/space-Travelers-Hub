@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRockets, selectRocket } from '../Redux/rockets/RocketsSlice';
+import { fetchRockets, selectRocket } from '../Redux/rockets/rocketsSlice';
+import '../assests/rockets.css';
 
 const Rockets = () => {
   const dispatch = useDispatch();
   const rockets = useSelector((state) => state.rockets.rockets);
-  const selectedRocket = useSelector((state) => state.rockets.selectedRocket);
   const status = useSelector((state) => state.rockets.status);
 
   useEffect(() => {
@@ -29,35 +29,20 @@ const Rockets = () => {
   }
 
   return (
-    <div>
-      <h2>Rockets</h2>
-      <ul>
+    <section className="rocket-container">
+      <ul className="rocket-list flex">
         {rockets.map((rocket) => (
           <li key={rocket.id}>
-            <div>
-              <h3>{rocket.name}</h3>
-              <p>
-                Type:
-                {' '}
-                {rocket.description}
-              </p>
-              <img src={rocket.flickr_images[0]} alt={rocket.name} />
+            <img src={rocket.flickr_images[0]} className="rocket-img" alt={rocket.name} />
+            <div className="rocket-textBox flex">
+              <h3 className="rocket-name">{rocket.name}</h3>
+              <p className="rocket-description">{rocket.description}</p>
+              <button type="button" className="reserveBttn">Reserve Rocket</button>
             </div>
           </li>
         ))}
       </ul>
-      {selectedRocket && (
-        <div>
-          <h3>{selectedRocket.name}</h3>
-          <p>
-            Type:
-            {' '}
-            {selectedRocket.description}
-          </p>
-          <img src={selectedRocket.flickr_images[0]} alt={selectedRocket.name} />
-        </div>
-      )}
-    </div>
+    </section>
   );
 };
 

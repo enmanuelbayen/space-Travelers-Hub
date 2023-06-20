@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import space from '../space.jpg';
+import space from '../assests/space.jpg';
 
 const Navbar = () => (
   <header className="header flex">
