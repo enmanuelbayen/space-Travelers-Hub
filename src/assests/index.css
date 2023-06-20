@@ -42,3 +42,20 @@
 .active {
   color: rgb(25, 0, 255);
 }
+
+.logo-container img {
+  width: 60px;
+  border-radius: 20px;
+}
+
+.missionTable {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.mission {
+  display: flex;
+  gap: 58px;
+  padding: 2%;
+}
