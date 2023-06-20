@@ -1,7 +1,7 @@
 .missionsTable,
 td,
 tr,
-th{
+th {
   border: 1px solid #d1d1d1;
   border-spacing: 0;
   padding: 7px;
@@ -10,47 +10,55 @@ th{
 .mission {
   font-weight: 700;
 }
-thead{
+
+thead {
   border: 1px solid #d1d1d1;
   text-align: left;
 }
-.descriptions{
+
+.descriptions {
   width: 60%;
 }
-.missionStatus{
+
+.missionStatus {
   width: 14%;
   text-align: center;
 }
-.missionButton{
+
+.missionButton {
   text-align: center;
   padding: 9px;
   line-height: 50%;
   width: 14%;
 }
-.joined{
-    padding: 4px 10px;
-    background: transparent;
-    border: 2px solid darkgray;
+
+.joined {
+  padding: 4px 10px;
+  background: transparent;
+  border: 2px solid darkgray;
 }
-.leave{
+
+.leave {
   padding: 4px 10px;
   background: transparent;
   border: 2px solid #ff6868;
   color: red;
 }
-.activeMemberText{
+
+.activeMemberText {
   background-color: rgb(134, 134, 255);
   color: white;
   border-radius: 5px;
   padding: 3px;
 }
-.notAMemberText{
+
+.notAMemberText {
   color: white;
   background-color: gray;
   border-radius: 5px;
   padding: 3px;
 }
-th{
-  font-weight: 700;
 
+th {
+  font-weight: 700;
 }
