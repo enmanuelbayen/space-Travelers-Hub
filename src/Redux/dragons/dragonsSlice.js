@@ -19,23 +19,24 @@ const dragonsSlice = createSlice({
   name: 'dragons',
   initialState,
   reducers: {},
-  extraReducers: {
-    [fetchDragons.pending]: (state) => {
-      state.status = 'loading';
-    },
-    [fetchDragons.fulfilled]: (state, action) => {
-      state.status = 'succeeded';
-      state.dragons = action.dragons.map((dragon) => ({
-        id: dragon.id,
-        name: dragon.name,
-        type: dragon.type,
-        flickr_images: dragon.flickr_images,
-      }));
-    },
-    [fetchDragons.rejected]: (state, action) => {
-      state.status = 'failed';
-      state.error = action.error.message;
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchDragons.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchDragons.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.dragons = action.payload.map((dragon) => ({
+          id: dragon.id,
+          name: dragon.name,
+          type: dragon.type,
+          flickr_images: dragon.flickr_images,
+        }));
+      })
+      .addCase(fetchDragons.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
   },
 });
 
