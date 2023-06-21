@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const MyProfile = () => {
   const reservedDragons = useSelector((state) => state.dragons.dragons.filter((dragon) => dragon.reserved === true));
-
+  const reservedRocket = useSelector((state) => state.rockets.rockets.filter((rocket) => rocket.reserved === true));
   const joinedMissions = useSelector((state) => state.missions.missions.filter((mission) => mission.joined === true));
 
   return (
@@ -11,7 +11,15 @@ const MyProfile = () => {
       <div className="container row col-4">
         <h3>My Rockets</h3>
         <ul className="list-group">
-          <li className="list-group-item">No Reserved Rockets</li>
+          {reservedRocket.length ? (
+            reservedRocket.map((rocket) => (
+              <li key={rocket.id} className="list-group-item">
+                {rocket.name}
+              </li>
+            ))
+          ) : (
+            <li className="list-group-item">No Reserved Rockets</li>
+          )}
         </ul>
       </div>
 
