@@ -47,3 +47,10 @@
   width: 60px;
   border-radius: 20px;
 }
+
+.profile-section {
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
