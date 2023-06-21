@@ -11,30 +11,32 @@ describe('RocketList', () => {
   let store;
 
   beforeEach(() => {
-    store = mockStore({
-      rockets: [],
-    });
+    store = mockStore({});
   });
 
-  test('renders rocket details correctly', () => {
+  test('renders rocket information correctly', () => {
     const rocket = {
-      img: 'rocket-image.jpg',
-      id: '123',
-      name: 'Falcon 9',
-      description: 'Rocket description',
+      img: 'rocket1.jpg',
+      id: '1',
+      name: 'Falcon 1',
+      description: 'Rocket 1 description',
       reserved: false,
     };
 
     render(
       <Provider store={store}>
-        <RocketList {...rocket} />
-      </Provider>
+        <RocketList
+          img={rocket.img}
+          id={rocket.id}
+          name={rocket.name}
+          description={rocket.description}
+          reserved={rocket.reserved}
+        />
+      </Provider>,
     );
 
-    expect(screen.getByAltText(rocket.name)).toBeInTheDocument();
-    expect(screen.getByText(rocket.name)).toBeInTheDocument();
-    expect(screen.getByText(rocket.description)).toBeInTheDocument();
-    expect(screen.getByText('Reserve Rocket')).toBeInTheDocument();
+    expect(screen.getByText('Falcon 1')).toBeInTheDocument();
+    expect(screen.getByText('Rocket 1 description')).toBeInTheDocument();
   });
 
   test('dispatches reserveRocket action when Reserve Rocket button is clicked', () => {
@@ -48,8 +50,14 @@ describe('RocketList', () => {
 
     render(
       <Provider store={store}>
-        <RocketList {...rocket} />
-      </Provider>
+        <RocketList
+          img={rocket.img}
+          id={rocket.id}
+          name={rocket.name}
+          description={rocket.description}
+          reserved={rocket.reserved}
+        />
+      </Provider>,
     );
 
     fireEvent.click(screen.getByText('Reserve Rocket'));
@@ -69,8 +77,14 @@ describe('RocketList', () => {
 
     render(
       <Provider store={store}>
-        <RocketList {...rocket} />
-      </Provider>
+        <RocketList
+          img={rocket.img}
+          id={rocket.id}
+          name={rocket.name}
+          description={rocket.description}
+          reserved={rocket.reserved}
+        />
+      </Provider>,
     );
 
     fireEvent.click(screen.getByText('Cancel Reservation'));

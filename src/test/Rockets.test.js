@@ -37,7 +37,7 @@ describe('Rockets', () => {
     render(
       <Provider store={store}>
         <Rockets />
-      </Provider>
+      </Provider>,
     );
 
     expect(screen.getByText('Falcon 1')).toBeInTheDocument();
@@ -57,7 +57,7 @@ describe('Rockets', () => {
     render(
       <Provider store={store}>
         <Rockets />
-      </Provider>
+      </Provider>,
     );
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
@@ -74,7 +74,7 @@ describe('Rockets', () => {
     render(
       <Provider store={store}>
         <Rockets />
-      </Provider>
+      </Provider>,
     );
 
     expect(screen.getByText('Failed to load rocket data')).toBeInTheDocument();
