@@ -48,6 +48,25 @@ li {
   border-radius: 4px;
 }
 
+.cancelBttn {
+  align-self: flex-start;
+  padding: 0.8em 1.5em;
+  background-color: transparent;
+  color: #000;
+  border: 0.5px solid #000;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.rocket-badge {
+  padding: 2px 4px;
+  font-size: 0.9em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #0a94e9;
+  color: rgba(255, 255, 255, 0.919);
+  border-radius: 5px;
+}
+
 .reserved--badge {
   width: 70px;
   height: auto;
