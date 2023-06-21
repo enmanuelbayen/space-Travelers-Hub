@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dragons Component should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="rocket-container"
+  >
+    <ul
+      class="rocket-list flex"
+    >
+      <li>
+        <img
+          alt="Dragon 1"
+          class="rocket-img"
+          src="image1"
+        />
+        <div
+          class="rocket-textBox flex"
+        >
+          <h3
+            class="rocket-name"
+          >
+            Dragon 1
+          </h3>
+          <p
+            class="rocket-description"
+          >
+            Type 1
+          </p>
+          <button
+            class="btn col-2 btn-primary"
+            type="button"
+          >
+            Reserve Dragon
+          </button>
+        </div>
+      </li>
+      <li>
+        <img
+          alt="Dragon 2"
+          class="rocket-img"
+          src="image2"
+        />
+        <div
+          class="rocket-textBox flex"
+        >
+          <h3
+            class="rocket-name"
+          >
+            Dragon 2
+          </h3>
+          <div
+            class="reserved--badge"
+          >
+            RESERVED
+          </div>
+          <p
+            class="rocket-description"
+          >
+            Type 2
+          </p>
+          <button
+            class="btn col-2 btn-outline-danger"
+            type="button"
+          >
+            Cancel Reservation
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
