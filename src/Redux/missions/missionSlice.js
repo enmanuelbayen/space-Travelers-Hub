@@ -1,12 +1,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 export const fetchMissions = createAsyncThunk('missions/fetchMissions', async () => {
-  const response = await axios.get('https://api.spacexdata.com/v3/missions');
-  return response.data;
+  try {
+    const response = await fetch('https://api.spacexdata.com/v3/missions');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error('Failed to fetch missions');
+  }
 });
 
-const missionsSlice = createSlice({
+export const missionsSlice = createSlice({
   name: 'missions',
   initialState: {
     missions: [],
@@ -54,23 +58,17 @@ const missionsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchMissions.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(fetchMissions.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.missions = action.payload.map((mission) => ({
-          mission_id: mission.mission_id,
-          mission_name: mission.mission_name,
-          description: mission.description,
-          joined: false,
-        }));
-      })
-      .addCase(fetchMissions.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
-      });
+    builder.addCase(fetchMissions.pending, (state) => {
+      state.status = 'loading';
+    });
+    builder.addCase(fetchMissions.fulfilled, (state, action) => {
+      state.status = 'succeeded';
+      state.missions = action.payload;
+    });
+    builder.addCase(fetchMissions.rejected, (state, action) => {
+      state.status = 'failed';
+      state.error = action.error.message;
+    });
   },
 });
 
