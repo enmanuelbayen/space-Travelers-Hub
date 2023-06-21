@@ -1,13 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
-export const fetchDragons = createAsyncThunk(
-  'dragons/fetchDragons',
-  async () => {
-    const response = await axios.get('https://api.spacexdata.com/v3/dragons');
-    return response.data;
-  },
-);
+export const fetchDragons = createAsyncThunk('dragons/fetchDragons', async () => {
+  const response = await fetch('https://api.spacexdata.com/v3/dragons');
+  const data = await response.json();
+  return data;
+});
 
 const initialState = {
   dragons: [],
