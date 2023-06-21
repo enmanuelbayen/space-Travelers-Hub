@@ -18,7 +18,7 @@ const MissionRow = ({ mission, handleJoinMission, handleCancelReservation }) => 
     <td className="missionButton">
       {mission.reserved ? (
         <button onClick={() => handleCancelReservation(mission.mission_id)} type="button" className="leave">
-          leave Mission
+          Leave Mission
         </button>
       ) : (
         <button onClick={() => handleJoinMission(mission.mission_id)} type="button" className="joined">
