@@ -4,6 +4,10 @@
 
   <h1 id="title"><b>Space Travelers' Hub</b></h1>
 
+  Project in conjunction with @SergioPeralta22 @StevenWafeek. Using React-Redux for the page and implementing APIs for rocket information, mission,s and dragons. 
+
+SPA about space missions and how to join them.
+
 </div>
 
 # 📗 Table of Contents
@@ -29,6 +33,8 @@
   - [📝 License ](#-license-)
 
 # 📖 Space Travelers' Hub <a name="about-project"></a>
+
+Enter and find out about the last missions that will be performed for navigation in space and become part of this adventure!
 
 ## 🛠 Built With <a name="built-with"></a>
 
