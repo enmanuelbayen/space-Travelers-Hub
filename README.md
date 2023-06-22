@@ -66,7 +66,7 @@ Enter and find out about the last missions that will be performed for navigation
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-Coming soon!
+You can check the project [here](https://space-travelers-hub-snowy.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -154,7 +154,7 @@ I use Githud pages for the deployment of this web page.
 
 Contributions, issues, and feature requests are welcome! Will help me a lot to improve my coding skills.
 
-Feel free to check the [issues page](../../issues/)
+Feel free to check the [issues page](https://github.com/enmanuelbayen/space-Travelers-Hub/issues)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
